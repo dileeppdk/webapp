@@ -24,10 +24,10 @@ stages{
 
         stage ('Deployment'){
         
-                stage ("Deploy to Development"){
+                stage ("Deploy to Staging"){
                     steps {
                         sh "pwd && la -la"
-                        sh "scp -i /root/dileeppdk.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
+                        sh "sudo scp -i /root/dileeppdk.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
                     }
                 }
             }
