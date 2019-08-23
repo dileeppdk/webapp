@@ -26,6 +26,7 @@ stages{
         
                 stage ("Deploy to Development"){
                     steps {
+                        sh "pwd && la -la"
                         sh "scp -i /root/dileeppdk.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
                     }
                 }
