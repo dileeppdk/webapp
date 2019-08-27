@@ -1,7 +1,7 @@
 pipeline {
     agent any
 parameters { 
-         string(name: 'tomcat_dev', defaultValue: '18.206.223.102', description: 'Staging Server') 
+         string(name: 'tomcat_dev', defaultValue: '54.165.105.255', description: 'Staging Server') 
            } 
 
     triggers {
@@ -25,7 +25,7 @@ parameters {
         stage('Deploy to Staging') {
              steps {
                         sh "pwd && ls -la"
-                        sh "sudo scp -i /root/dileeppdk.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
+                        sh "sudo scp -i /var/lib/jenkins/dileep.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps"
                    }
                }
            }
