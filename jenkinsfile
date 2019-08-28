@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy to Staging') {
              steps {
                       
-                        sh 'sudo scp -i /var/lib/jenkins/dileep.pem ./target/*.war ec2-user@52.91.110.184:/opt/apache-tomcat-7.0.53/webapps'
+                        sh 'scp -i /var/lib/jenkins/dileep.pem ./target/*.war ec2-user@52.91.110.184:/opt/apache-tomcat-7.0.53/webapps'
                    }
                }
            }
