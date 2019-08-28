@@ -1,8 +1,6 @@
 pipeline {
     agent any
-parameters { 
-         string(name: 'tomcat_dev', defaultValue: '54.165.105.255', description: 'Staging Server') 
-           } 
+
 
     triggers {
          pollSCM('* * * * *') // Polling Source Control
@@ -25,7 +23,7 @@ parameters {
         stage('Deploy to Staging') {
              steps {
                       
-                        sh 'scp -i /var/lib/jenkins/dileep.pem ./target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-7.0.53/webapps'
+                        sh 'scp -i /var/lib/jenkins/dileep.pem ./target/*.war ec2-user@52.91.110.184:/opt/apache-tomcat-7.0.53/webapps'
                    }
                }
            }
